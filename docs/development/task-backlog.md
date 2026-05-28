@@ -147,13 +147,13 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Probe `command -v codex`.
-- [ ] Probe `codex --version`.
-- [ ] Detect `~/.codex/config.toml` existence without reading auth secrets.
-- [ ] Detect project markers `.codex/` and `AGENTS.md` under the selected workspace root.
-- [ ] Probe help text for `exec`, `mcp`, and local provider support.
-- [ ] Redact paths or warnings that include token-like values.
-- [ ] Commit with message `feat: detect codex runtime`.
+- [x] Probe `command -v codex`.
+- [x] Probe `codex --version`.
+- [x] Detect `~/.codex/config.toml` existence without reading auth secrets.
+- [x] Detect project markers `.codex/` and `AGENTS.md` under the selected workspace root.
+- [x] Probe help text for `exec`, `mcp`, and local provider support.
+- [x] Redact paths or warnings that include token-like values.
+- [x] Commit with message `feat: detect codex runtime`.
 
 **Acceptance Criteria:**
 
