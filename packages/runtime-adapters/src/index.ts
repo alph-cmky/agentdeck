@@ -18,3 +18,5 @@ export {
   type RunProbeOptions,
   type RunProbeResult,
 } from "./probe/run-probe.js";
+
+export { detectCodexRuntime, type DetectCodexRuntimeOptions } from "./detectors/codex.js";
