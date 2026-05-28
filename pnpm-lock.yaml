@@ -39,7 +39,11 @@ importers:
         specifier: ^4.1.7
         version: 4.1.7(@types/node@25.9.1)(vite@8.0.14(@types/node@25.9.1))
 
-  apps/daemon: {}
+  apps/daemon:
+    dependencies:
+      '@agentdeck/runtime-adapters':
+        specifier: workspace:*
+        version: link:../../packages/runtime-adapters
 
   apps/server: {}
 
