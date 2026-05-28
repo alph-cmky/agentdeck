@@ -1,0 +1,34 @@
+name: Runtime adapter request
+description: Request support for a local or cloud agent runtime.
+title: "[Runtime Adapter]: "
+labels: ["type: runtime-adapter"]
+body:
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime name
+      placeholder: "Codex, Claude, Ollama, LM Studio, OpenHands, etc."
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Detection commands
+      description: Which read-only commands should AgentDeck use to detect this runtime?
+      placeholder: |
+        command -v <runtime>
+        <runtime> --version
+        <runtime> --help
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Capabilities
+      description: What can this runtime do?
+      placeholder: "exec, chat, local models, MCP, tools, workspace access..."
+  - type: textarea
+    id: security
+    attributes:
+      label: Security considerations
+      description: Note any auth files, tokens, command execution risks, or network behavior.
+    validations:
+      required: true

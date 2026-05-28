@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a product capability or improvement.
+title: "[Feature]: "
+labels: ["type: feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the desired behavior.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Chat Workspace
+        - Agent Registry
+        - Runtime Detector
+        - Local Daemon
+        - Runtime Adapter
+        - Workflow Core
+        - Workflow Canvas
+        - Patch Approval
+        - Security and Audit
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This fits the current MVP scope or explains why the scope should change.
+          required: true
