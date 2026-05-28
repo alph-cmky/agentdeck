@@ -125,11 +125,11 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Implement a helper that runs `/bin/zsh -lc '<command>'` on macOS and a regular shell command elsewhere.
-- [ ] Capture `stdout`, `stderr`, `exitCode`, and elapsed time.
-- [ ] Add a timeout option with a short default.
-- [ ] Prevent probe helpers from accepting write-oriented commands in tests by documenting allowed usage.
-- [ ] Commit with message `feat: add runtime probe command helper`.
+- [x] Implement a helper that runs `/bin/zsh -lc '<command>'` on macOS and a regular shell command elsewhere.
+- [x] Capture `stdout`, `stderr`, `exitCode`, and elapsed time.
+- [x] Add a timeout option with a short default.
+- [x] Prevent probe helpers from accepting write-oriented commands in tests by documenting allowed usage.
+- [x] Commit with message `feat: add runtime probe command helper`.
 
 **Acceptance Criteria:**
 
