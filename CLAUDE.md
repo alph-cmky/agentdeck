@@ -1,10 +1,10 @@
 # AgentDeck Claude Code Instructions
 
-Claude Code agents working in this repository must follow the shared project constraints in `agent.md`.
+Claude Code agents working in this repository must follow the shared project constraints in `AGENTS.md`.
 
 ## Primary Workflow
 
-1. Read `agent.md`.
+1. Read `AGENTS.md`.
 2. Read `docs/development/README.md`.
 3. Find the relevant task in `docs/development/task-backlog.md`.
 4. Confirm the task scope before editing files.
