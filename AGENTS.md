@@ -1,109 +1,109 @@
-# AgentDeck Agent Instructions
+# AgentDeck Agent 指令
 
-This file defines project constraints for AI coding agents working in this repository.
+本文档定义 AI coding agent 在本仓库中工作时必须遵守的项目约束。
 
-## Project Context
+## 项目上下文
 
-AgentDeck is a local-first multi-agent workspace for developers and AI builders. The product combines:
+AgentDeck 是一个面向开发者和 AI builder 的 local-first 多 Agent 工作区。产品组合了：
 
-- Chat-based multi-agent collaboration.
-- Local runtime detection for Codex, Claude, Ollama, LM Studio, Node, Git, and related tools.
-- Low-code Agent and Workflow DAG orchestration.
-- Safe chat-to-workflow editing through patch proposals, validation, diff preview, approval, and rollback.
+- 基于 Chat 的多 Agent 协作。
+- 对 Codex、Claude、Ollama、LM Studio、Node、Git 等本地 runtime 的探测。
+- 低代码 Agent 和 Workflow DAG 编排。
+- 通过 patch proposal、校验、diff preview、审批和回滚实现安全的 chat-to-workflow 编辑。
 
-Primary references:
+主要参考文档：
 
 - `AGENTDECK_PRODUCT_DESIGN.md`
 - `agentdeck-project-brief.md`
 - `docs/development/README.md`
 - `docs/development/task-backlog.md`
 
-## Operating Rules
+## 工作规则
 
-- Treat `docs/development/task-backlog.md` as the source of truth for planned implementation tasks.
-- Keep task IDs stable once they appear in commits, issues, or PRs.
-- Update the relevant task checkbox when completing a planned task.
-- Keep changes small and scoped to the current task.
-- Prefer project patterns and existing package boundaries over inventing new structure.
-- Do not introduce large unrelated refactors while implementing a focused task.
-- Keep documentation updated when behavior, architecture, permissions, or workflows change.
+- 将 `docs/development/task-backlog.md` 作为计划任务的事实来源。
+- 任务 ID 一旦出现在 commit、issue 或 PR 中，就必须保持稳定。
+- 完成计划任务时，更新对应任务的 checkbox。
+- 修改必须小而聚焦，只覆盖当前任务范围。
+- 优先遵循项目已有模式和既定 package 边界，不随意发明新结构。
+- 实现聚焦任务时，不做大范围无关重构。
+- 当行为、架构、权限或 workflow 发生变化时，同步更新文档。
 
-## Architecture Constraints
+## 架构约束
 
-The planned repo shape is:
+计划中的仓库结构如下：
 
 ```text
 apps/web
   Next.js / React / React Flow UI
 
 apps/server
-  Node.js control plane for agents, workflows, chat, audit, and permissions
+  Node.js control plane，负责 agents、workflows、chat、audit 和 permissions
 
 apps/daemon
-  Local runtime detection, process execution, workspace adapter, and event stream
+  本地 runtime 探测、进程执行、workspace adapter 和 event stream
 
 packages/workflow-core
-  DAG schema, validator, executor, versioning, and patch engine
+  DAG schema、validator、executor、versioning 和 patch engine
 
 packages/runtime-adapters
-  Codex, Claude, shell, Ollama, LM Studio, Node, Git, and related adapters
+  Codex、Claude、shell、Ollama、LM Studio、Node、Git 等 adapter
 
 packages/mcp-server
-  Controlled tools for agent and workflow patch operations
+  面向 agent 的受控工具，用于 agent 和 workflow patch 操作
 ```
 
-Keep shared domain logic in packages, not hidden inside UI components or route handlers.
+共享领域逻辑应放在 packages 中，不要隐藏在 UI 组件或 route handler 内部。
 
-## Security Constraints
+## 安全约束
 
-AgentDeck runs local commands through a daemon, so security is product-critical.
+AgentDeck 会通过本地 daemon 执行命令，因此安全是产品核心能力。
 
-- New agents must default to read-only workspace access.
-- Do not allow direct database or workflow mutation by coding agents.
-- Coding agents may propose patches; platform services must validate and apply them only after approval.
-- Writes, dependency installs, arbitrary commands, file deletion, commits, and pushes require explicit permission or approval.
-- Never read or display raw auth files such as `~/.codex/auth.json`.
-- Redact tokens, secrets, API keys, passwords, and similar values from logs, UI, test snapshots, and audit records.
-- Use safe command allowlists for MVP task execution.
-- Record task execution, command summaries, diffs, approvals, and rollback points in audit flows.
+- 新 Agent 默认只能读取 workspace。
+- 不允许 coding agent 直接修改数据库或 workflow 状态。
+- Coding agent 可以提出 patch；平台服务必须先校验，且只在审批后应用。
+- 写文件、安装依赖、任意命令、删除文件、commit、push 都必须有显式权限或审批。
+- 永远不要读取或展示原始认证文件，例如 `~/.codex/auth.json`。
+- 日志、UI、测试快照和审计记录中必须脱敏 token、secret、API key、password 等敏感值。
+- MVP 的任务执行必须使用安全命令 allowlist。
+- 任务执行、命令摘要、diff、审批和 rollback point 必须进入审计流程。
 
-## Implementation Constraints
+## 实现约束
 
-- Use TypeScript for product code unless a task explicitly chooses another language.
-- Prefer strict types and schema validation at subsystem boundaries.
-- Use TDD for risky domain logic such as workflow validation, runtime detection, permission policy, patch application, and audit redaction.
-- Keep files focused. Split by responsibility when a module becomes hard to reason about.
-- Add tests near the package or feature they cover.
-- Do not add dependencies casually. Prefer small, established libraries that match the planned stack.
-- Do not implement cloud execution, multi-tenant enterprise permissions, billing, plugin marketplace, full RAG, or custom model training in MVP tasks.
+- 产品代码默认使用 TypeScript，除非任务明确指定其他语言。
+- 子系统边界处优先使用严格类型和 schema validation。
+- 对 workflow validation、runtime detection、permission policy、patch application、audit redaction 等高风险领域逻辑使用 TDD。
+- 文件职责要聚焦。模块变得难以理解时，应按责任拆分。
+- 测试应靠近被测 package 或 feature。
+- 不要随意添加依赖。优先选择小而成熟、符合计划技术栈的库。
+- MVP 任务中不要实现 cloud execution、多租户企业权限、billing、plugin marketplace、完整 RAG 或 custom model training。
 
-## UI Constraints
+## UI 约束
 
-AgentDeck should feel like a developer workspace, not a marketing-style AI app builder.
+AgentDeck 应该像开发者工作区，而不是营销型 AI app builder。
 
-- Default UI entry should be the workspace, not a landing page.
-- Main layout should use a top bar, left sidebar, primary work area, and right inspector.
-- Keep UI dense, utilitarian, and status-oriented.
-- Prefer panels, tables, split views, timelines, and inspectors over decorative cards.
-- Surface runtime health, task status, permissions, diffs, and approvals clearly.
-- Avoid large purple/blue gradients, decorative backgrounds, and oversized hero sections.
-- Use stable dimensions for toolbars, grids, node controls, counters, and inspector panels.
-- Do not show secrets or raw auth content in the UI.
+- 默认入口应是 workspace，而不是 landing page。
+- 主布局应包含 top bar、left sidebar、primary work area 和 right inspector。
+- UI 要高密度、工具化、强调状态。
+- 优先使用 panel、table、split view、timeline 和 inspector，少用装饰性 card。
+- 清楚展示 runtime health、task status、permissions、diff 和 approval。
+- 避免大面积紫蓝渐变、装饰背景和超大 hero section。
+- toolbar、grid、node control、counter 和 inspector panel 要有稳定尺寸。
+- UI 中不得展示 secret 或原始 auth 内容。
 
-## Git and Documentation
+## Git 和文档
 
-- Keep `main` releasable and documented.
-- Make focused commits with clear messages.
-- Do not force push or rewrite shared history unless explicitly requested.
-- Do not commit generated archives, local caches, secrets, or runtime auth files.
-- Keep development plans in `docs/development/`.
-- Keep product direction in `AGENTDECK_PRODUCT_DESIGN.md`.
+- 保持 `main` 可发布且文档同步。
+- Commit 要聚焦，message 要清晰。
+- 除非用户明确要求，不要 force push 或重写共享历史。
+- 不要提交生成的 archive、本地 cache、secret 或 runtime auth 文件。
+- 开发计划维护在 `docs/development/`。
+- 产品方向维护在 `AGENTDECK_PRODUCT_DESIGN.md`。
 
-## Verification
+## 验证要求
 
-Before claiming work is complete:
+在声明工作完成前：
 
-- Run the relevant tests, typecheck, lint, or docs checks for the changed area.
-- Read the command output and report real status.
-- If a command cannot run because tooling is not scaffolded yet, state that explicitly.
-- For docs-only changes, verify Markdown structure, relevant links, and git status.
+- 运行变更区域对应的 test、typecheck、lint 或 docs check。
+- 阅读命令输出，并报告真实状态。
+- 如果因为脚手架或工具尚未建立导致命令无法运行，必须明确说明。
+- 对纯文档变更，检查 Markdown 结构、相关链接和 git status。
