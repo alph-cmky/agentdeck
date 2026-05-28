@@ -104,11 +104,11 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define `RuntimeType` for `codex`, `claude`, `ollama`, `lmstudio`, `node`, `git`, and `code`.
-- [ ] Define `RuntimeStatus` for `missing`, `ready`, `configured`, `projectActive`, and `localProviderReady`.
-- [ ] Define `RuntimeDetectionResult` with `id`, `name`, `type`, `detected`, `path`, `version`, `scope`, `capabilities`, `warnings`, and `lastDetectedAt`.
-- [ ] Add tests for status ordering and required runtime fields.
-- [ ] Commit with message `feat: define runtime detection types`.
+- [x] Define `RuntimeType` for `codex`, `claude`, `ollama`, `lmstudio`, `node`, `git`, and `code`.
+- [x] Define `RuntimeStatus` for `missing`, `ready`, `configured`, `projectActive`, and `localProviderReady`.
+- [x] Define `RuntimeDetectionResult` with `id`, `name`, `type`, `detected`, `path`, `version`, `scope`, `capabilities`, `warnings`, and `lastDetectedAt`.
+- [x] Add tests for status ordering and required runtime fields.
+- [x] Commit with message `feat: define runtime detection types`.
 
 **Acceptance Criteria:**
 
