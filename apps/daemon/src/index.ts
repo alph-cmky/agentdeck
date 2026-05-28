@@ -3,6 +3,11 @@ import { pathToFileURL } from "node:url";
 import { createDaemonServer, listenOnLocalhost } from "./server.js";
 
 export { createDaemonServer, listenOnLocalhost } from "./server.js";
+export { createEventBus } from "./events/event-bus.js";
+export { DAEMON_EVENT_TYPES } from "./events/event-types.js";
+export { handleEventsStream } from "./routes/events.js";
+export type { DaemonEvent, DaemonEventType } from "./events/event-types.js";
+export type { EventBus, EventSubscription } from "./events/event-bus.js";
 export { getRuntimesResponse } from "./routes/runtimes.js";
 export type {
   RuntimeDetectionRequest,
