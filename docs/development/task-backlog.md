@@ -248,10 +248,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define schema fields for `id`, `name`, `description`, `prompt`, `model`, `tools`, `permissions`, `memoryScope`, `runtimePreference`, and `workspaceRoot`.
-- [ ] Require new agents to default to read-only permissions.
-- [ ] Validate workspace root is explicit.
-- [ ] Commit with message `feat: define agent schema`.
+- [x] Define schema fields for `id`, `name`, `description`, `prompt`, `model`, `tools`, `permissions`, `memoryScope`, `runtimePreference`, and `workspaceRoot`.
+- [x] Require new agents to default to read-only permissions.
+- [x] Validate workspace root is explicit.
+- [x] Commit with message `feat: define agent schema`.
 
 **Acceptance Criteria:**
 
