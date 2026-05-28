@@ -4,6 +4,11 @@
 
 本文档汇总当前关于 AgentDeck 的产品定位、竞品判断、MVP 范围、用户流程、流程图和 UI 方向。后续根目录优先维护本文档，`agentdeck-project-brief.md` 保留为原始交接简报。
 
+开发计划维护在：
+
+- `docs/development/README.md`
+- `docs/development/task-backlog.md`
+
 ## 1. 项目定位
 
 AgentDeck 是一个面向开发者和 AI builder 的开源 local-first Agent Workspace。
