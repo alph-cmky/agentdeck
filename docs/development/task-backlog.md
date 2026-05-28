@@ -200,12 +200,12 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Start a local server bound to `127.0.0.1`.
-- [ ] Add `GET /health`.
-- [ ] Add `GET /runtimes?workspaceRoot=<path>`.
-- [ ] Return normalized runtime detection results.
-- [ ] Reject non-localhost origins for browser requests.
-- [ ] Commit with message `feat: expose runtime detection daemon api`.
+- [x] Start a local server bound to `127.0.0.1`.
+- [x] Add `GET /health`.
+- [x] Add `GET /runtimes?workspaceRoot=<path>`.
+- [x] Return normalized runtime detection results.
+- [x] Reject non-localhost origins for browser requests.
+- [x] Commit with message `feat: expose runtime detection daemon api`.
 
 **Acceptance Criteria:**
 
