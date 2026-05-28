@@ -2,10 +2,13 @@ import { createServer, type IncomingMessage, type Server, type ServerResponse } 
 
 import { detectCoreRuntimes } from "@agentdeck/runtime-adapters";
 
+import { createEventBus, type EventBus } from "./events/event-bus.js";
+import { handleEventsStream } from "./routes/events.js";
 import { getRuntimesResponse, type RuntimeDetector } from "./routes/runtimes.js";
 
 export interface CreateDaemonServerOptions {
   readonly detectRuntimes?: RuntimeDetector;
+  readonly eventBus?: EventBus;
 }
 
 const HEALTH_RESPONSE = {
@@ -16,6 +19,7 @@ const HEALTH_RESPONSE = {
 
 export function createDaemonServer(options: CreateDaemonServerOptions = {}): Server {
   const detectRuntimes = options.detectRuntimes ?? detectCoreRuntimes;
+  const eventBus = options.eventBus ?? createEventBus();
 
   return createServer(async (request, response) => {
     try {
@@ -40,7 +44,23 @@ export function createDaemonServer(options: CreateDaemonServerOptions = {}): Ser
           ...(workspaceRoot ? { workspaceRoot } : {}),
           detectRuntimes,
         });
+        for (const runtime of body.runtimes) {
+          eventBus.publish({
+            id: `runtime.${runtime.id}.${Date.now()}`,
+            type: "runtime.detected",
+            createdAt: new Date().toISOString(),
+            payload: {
+              runtimeId: runtime.id,
+              status: runtime.status,
+            },
+          });
+        }
         writeJson(response, 200, body);
+        return;
+      }
+
+      if (request.method === "GET" && requestUrl.pathname === "/events") {
+        handleEventsStream(response, eventBus);
         return;
       }
 
