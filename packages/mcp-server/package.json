@@ -1,0 +1,20 @@
+{
+  "name": "@agentdeck/mcp-server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsc -p tsconfig.json --watch",
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"@agentdeck/mcp-server tests are not scaffolded yet\"",
+    "lint": "echo \"@agentdeck/mcp-server lint is not scaffolded yet\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "echo \"@agentdeck/mcp-server format is not scaffolded yet\""
+  }
+}
