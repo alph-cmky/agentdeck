@@ -68,15 +68,15 @@ Slock-like 多 Agent 协作空间
 
 截至 2026-05-27，社区里有很多可借鉴组件，但没有一个成熟开源方案完整覆盖 AgentDeck 的设想。
 
-| 方向 | 代表方案 | 可借鉴点 | 不足 |
-| --- | --- | --- | --- |
-| 多 Agent 协作空间 | Slock | Channel / DM / thread、多 Agent、local daemon、持久记忆 | 低代码编排弱，完整开源生态不明确 |
-| 低代码 Agent 平台 | Coze Studio | Agent、Workflow、Plugin、RAG、可视化低代码 | 架构较重，偏平台，不是本地 coding-agent workspace |
-| LLM App 平台 | Dify | 应用、Agent、Workflow、RAG、插件、API 发布 | 更偏 AI 应用发布，不偏本地代码协作 |
-| 可视化 Agent 工作流 | Flowise / Langflow | Chatflow、Agentflow、可视化搭建、API/SDK/CLI | 本地 coding agent 与安全改图能力不足 |
-| 多 Agent 框架 | CrewAI / AutoGen Studio / LangGraph | 多 Agent 协作、任务分发、状态图、调试 | 更偏框架或实验台，不是完整产品 |
-| coding agent runtime | OpenHands / Aider / Claude Code / Codex CLI | 代码修改、命令执行、仓库任务、沙箱能力 | 缺少 Coze-like 低代码工作流产品体验 |
-| 协议层 | MCP | 标准化 tools/resources/prompts，可做 Agent 修改系统的安全工具层 | 本身不是应用框架 |
+| 方向                 | 代表方案                                    | 可借鉴点                                                        | 不足                                              |
+| -------------------- | ------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------- |
+| 多 Agent 协作空间    | Slock                                       | Channel / DM / thread、多 Agent、local daemon、持久记忆         | 低代码编排弱，完整开源生态不明确                  |
+| 低代码 Agent 平台    | Coze Studio                                 | Agent、Workflow、Plugin、RAG、可视化低代码                      | 架构较重，偏平台，不是本地 coding-agent workspace |
+| LLM App 平台         | Dify                                        | 应用、Agent、Workflow、RAG、插件、API 发布                      | 更偏 AI 应用发布，不偏本地代码协作                |
+| 可视化 Agent 工作流  | Flowise / Langflow                          | Chatflow、Agentflow、可视化搭建、API/SDK/CLI                    | 本地 coding agent 与安全改图能力不足              |
+| 多 Agent 框架        | CrewAI / AutoGen Studio / LangGraph         | 多 Agent 协作、任务分发、状态图、调试                           | 更偏框架或实验台，不是完整产品                    |
+| coding agent runtime | OpenHands / Aider / Claude Code / Codex CLI | 代码修改、命令执行、仓库任务、沙箱能力                          | 缺少 Coze-like 低代码工作流产品体验               |
+| 协议层               | MCP                                         | 标准化 tools/resources/prompts，可做 Agent 修改系统的安全工具层 | 本身不是应用框架                                  |
 
 ### Slock 是否开源
 
@@ -423,17 +423,17 @@ sequenceDiagram
 
 ## 13. 用户路径梳理
 
-| 阶段 | 用户动作 | 系统响应 | 关键产物 |
-| --- | --- | --- | --- |
-| 初始化 | 打开 AgentDeck | 探测 Codex / Claude / Ollama / Node / Git | Runtime 状态 |
-| 建立工作区 | 选择项目目录 | 绑定 workspaceRoot，读取项目 marker | Workspace |
-| 创建 Agent | 设置名称、prompt、模型、权限 | 保存 AgentDefinition | Agent Registry |
-| 发起任务 | 在 Chat 中 `@agent` | 创建 task，启动本地 runtime | Task Stream |
-| 查看执行 | 看日志、状态、diff、产物 | 实时事件流回传 | Execution Trace |
-| 编排流程 | 打开 Workflow Canvas | 创建 Start / Agent / Tool / Condition / Human Approval / End | WorkflowDefinition |
-| 自然语言改流程 | 在 Chat 中描述修改 | Coding agent 生成 patch proposal | PatchProposal |
-| 审批发布 | 查看 diff 并确认 | 校验、apply、生成版本 | 新 workflow version |
-| 回滚审计 | 查看历史修改 | 展示谁改了什么、何时改、为何改 | Audit Log / Rollback |
+| 阶段           | 用户动作                     | 系统响应                                                     | 关键产物             |
+| -------------- | ---------------------------- | ------------------------------------------------------------ | -------------------- |
+| 初始化         | 打开 AgentDeck               | 探测 Codex / Claude / Ollama / Node / Git                    | Runtime 状态         |
+| 建立工作区     | 选择项目目录                 | 绑定 workspaceRoot，读取项目 marker                          | Workspace            |
+| 创建 Agent     | 设置名称、prompt、模型、权限 | 保存 AgentDefinition                                         | Agent Registry       |
+| 发起任务       | 在 Chat 中 `@agent`          | 创建 task，启动本地 runtime                                  | Task Stream          |
+| 查看执行       | 看日志、状态、diff、产物     | 实时事件流回传                                               | Execution Trace      |
+| 编排流程       | 打开 Workflow Canvas         | 创建 Start / Agent / Tool / Condition / Human Approval / End | WorkflowDefinition   |
+| 自然语言改流程 | 在 Chat 中描述修改           | Coding agent 生成 patch proposal                             | PatchProposal        |
+| 审批发布       | 查看 diff 并确认             | 校验、apply、生成版本                                        | 新 workflow version  |
+| 回滚审计       | 查看历史修改                 | 展示谁改了什么、何时改、为何改                               | Audit Log / Rollback |
 
 ## 14. MVP 用户故事
 
