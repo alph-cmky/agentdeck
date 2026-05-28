@@ -1,0 +1,14 @@
+{
+  "name": "@agentdeck/daemon",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"@agentdeck/daemon dev server is not scaffolded yet\"",
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"@agentdeck/daemon tests are not scaffolded yet\"",
+    "lint": "echo \"@agentdeck/daemon lint is not scaffolded yet\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "echo \"@agentdeck/daemon format is not scaffolded yet\""
+  }
+}

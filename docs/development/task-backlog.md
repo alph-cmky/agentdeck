@@ -28,11 +28,11 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Add workspace scripts for `dev`, `build`, `test`, `lint`, `typecheck`, and `format`.
-- [ ] Add package names using the `@agentdeck/*` namespace.
-- [ ] Configure TypeScript strict mode in the shared base config.
-- [ ] Verify `pnpm install` succeeds from the repo root.
-- [ ] Commit with message `chore: scaffold monorepo`.
+- [x] Add workspace scripts for `dev`, `build`, `test`, `lint`, `typecheck`, and `format`.
+- [x] Add package names using the `@agentdeck/*` namespace.
+- [x] Configure TypeScript strict mode in the shared base config.
+- [x] Verify `pnpm install` succeeds from the repo root.
+- [x] Commit with message `chore: scaffold monorepo`.
 
 **Acceptance Criteria:**
 
