@@ -68,3 +68,18 @@ export type {
   ProposeWorkflowPatchInput,
   WorkflowPatchProposal,
 } from "./patches/patch-schema.js";
+export {
+  DEFAULT_AGENT_PERMISSION_GRANTS,
+  PERMISSION_NAMES,
+  createDefaultPermissionPolicy,
+} from "./security/permission-policy.js";
+export type {
+  CommandPermissionEvaluationRequest,
+  CreateDefaultPermissionPolicyOptions,
+  PermissionDecision,
+  PermissionEvaluationRequest,
+  PermissionEvaluationResult,
+  PermissionGrants,
+  PermissionName,
+  PermissionPolicy,
+} from "./security/permission-policy.js";

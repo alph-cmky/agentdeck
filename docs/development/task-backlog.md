@@ -511,9 +511,9 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Implement permissions for read, write, safe commands, arbitrary commands, network, install dependencies, git commit, and git push.
-- [ ] Require approval for dangerous permissions by default.
-- [ ] Commit with message `feat: add permission policy`.
+- [x] Implement permissions for read, write, safe commands, arbitrary commands, network, install dependencies, git commit, and git push.
+- [x] Require approval for dangerous permissions by default.
+- [x] Commit with message `feat: add permission policy`.
 
 **Acceptance Criteria:**
 
