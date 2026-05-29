@@ -293,10 +293,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define `Conversation`, `Channel`, `Thread`, `Message`, and `TaskRef`.
-- [ ] Parse `@agent` mentions into structured references.
-- [ ] Validate that mentioned agents exist before task creation.
-- [ ] Commit with message `feat: define chat and task schemas`.
+- [x] Define `Conversation`, `Channel`, `Thread`, `Message`, and `TaskRef`.
+- [x] Parse `@agent` mentions into structured references.
+- [x] Validate that mentioned agents exist before task creation.
+- [x] Commit with message `feat: define chat and task schemas`.
 
 **Acceptance Criteria:**
 
