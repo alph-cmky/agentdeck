@@ -641,10 +641,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Apply approved workflow patch proposals through the workflow registry.
-- [ ] Reject stale base versions before apply.
-- [ ] Audit approved and rejected apply attempts.
-- [ ] Commit with message `feat: integrate patch apply workflow persistence`.
+- [x] Apply approved workflow patch proposals through the workflow registry.
+- [x] Reject stale base versions before apply.
+- [x] Audit approved and rejected apply attempts.
+- [x] Commit with message `feat: integrate patch apply workflow persistence`.
 
 **Acceptance Criteria:**
 

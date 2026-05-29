@@ -10,6 +10,8 @@ import type {
   ProposeWorkflowPatchInput,
   WorkflowPatchProposal,
 } from "./patch-schema.js";
+import type { AuditLogService } from "../audit/audit-service.js";
+import type { WorkflowRegistryService } from "../workflows/workflow-service.js";
 
 export interface PatchProposalService {
   readonly proposeWorkflowPatch: (
@@ -30,6 +32,8 @@ export interface CreatePatchProposalServiceOptions {
   readonly now?: () => string;
   readonly nextId?: () => string;
   readonly workflowValidation?: WorkflowSafetyValidatorOptions;
+  readonly workflowRegistry?: WorkflowRegistryService;
+  readonly auditLog?: AuditLogService;
 }
 
 export function createPatchProposalService(
@@ -90,19 +94,80 @@ export function createPatchProposalService(
         throw new Error(`Patch proposal "${id}" has validation errors.`);
       }
 
+      const workflow = await applyWorkflowPatch(proposal, options);
       const applied = {
         ...proposal,
         approvalState: "applied" as const,
+        diffPreview: {
+          ...proposal.diffPreview,
+          after: workflow,
+        },
         updatedAt: now(),
       };
       proposals.set(id, applied);
+      await options.auditLog?.record({
+        action: "patch.proposal",
+        actor: { type: "system", id: "patch-service" },
+        patchProposalId: proposal.id,
+        diffSummary: proposal.diffPreview.summary.join("; "),
+        approvalDecision: "approved",
+        metadata: {
+          targetType: proposal.targetType,
+          targetId: proposal.targetId,
+          baseVersion: proposal.baseVersion,
+        },
+      });
 
       return {
         proposal: applied,
-        workflow: cloneJson(applied.diffPreview.after),
+        workflow: cloneJson(workflow),
       };
     },
   };
+}
+
+async function applyWorkflowPatch(
+  proposal: WorkflowPatchProposal,
+  options: CreatePatchProposalServiceOptions,
+): Promise<WorkflowDefinition> {
+  const workflowRegistry = options.workflowRegistry;
+  if (!workflowRegistry) {
+    return cloneJson(proposal.diffPreview.after);
+  }
+
+  const currentWorkflow = await workflowRegistry.get(proposal.targetId);
+  if (!currentWorkflow) {
+    throw new Error(`Workflow "${proposal.targetId}" was not found.`);
+  }
+
+  if (currentWorkflow.version !== proposal.baseVersion) {
+    await options.auditLog?.record({
+      action: "approval.decision",
+      actor: { type: "system", id: "patch-service" },
+      patchProposalId: proposal.id,
+      diffSummary: proposal.diffPreview.summary.join("; "),
+      approvalDecision: "rejected",
+      metadata: {
+        targetType: proposal.targetType,
+        targetId: proposal.targetId,
+        baseVersion: proposal.baseVersion,
+        currentVersion: currentWorkflow.version,
+      },
+    });
+    throw new Error(
+      `Patch proposal "${proposal.id}" targets workflow version ${proposal.baseVersion}, but current version is ${currentWorkflow.version}.`,
+    );
+  }
+
+  return await workflowRegistry.update(proposal.targetId, {
+    name: proposal.diffPreview.after.name,
+    version: proposal.diffPreview.after.version,
+    status: proposal.diffPreview.after.status,
+    variables: proposal.diffPreview.after.variables,
+    permissions: proposal.diffPreview.after.permissions,
+    nodes: proposal.diffPreview.after.nodes,
+    edges: proposal.diffPreview.after.edges,
+  });
 }
 
 function assertBaseVersion(workflow: WorkflowDefinition, baseVersion: number): void {

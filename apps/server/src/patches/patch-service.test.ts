@@ -1,8 +1,22 @@
-import { describe, expect, it } from "vitest";
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+
+import { afterEach, describe, expect, it } from "vitest";
 
 import { createPatchProposalService } from "./patch-service.js";
 import type { JsonPatchOperation } from "./patch-schema.js";
+import { createAuditLogService } from "../audit/audit-service.js";
+import { createWorkflowRegistryService } from "../workflows/workflow-service.js";
 import type { WorkflowDefinition } from "@agentdeck/workflow-core";
+
+const tempDirs: string[] = [];
+
+async function createTempStorePath(): Promise<string> {
+  const tempDir = await mkdtemp(join(tmpdir(), "agentdeck-patch-service-"));
+  tempDirs.push(tempDir);
+  return join(tempDir, "workflows.json");
+}
 
 const baseWorkflow: WorkflowDefinition = {
   id: "code-review",
@@ -32,6 +46,10 @@ const baseWorkflow: WorkflowDefinition = {
 };
 
 describe("createPatchProposalService", () => {
+  afterEach(async () => {
+    await Promise.all(tempDirs.splice(0).map((dir) => rm(dir, { recursive: true, force: true })));
+  });
+
   it("proposes and previews a valid workflow patch without mutating the target", async () => {
     const service = createPatchProposalService({
       now: () => "2026-05-29T01:00:00.000Z",
@@ -96,5 +114,78 @@ describe("createPatchProposalService", () => {
     expect(applied.workflow.status).toBe("active");
     expect(applied.proposal.approvalState).toBe("applied");
     expect(baseWorkflow.status).toBe("draft");
+  });
+
+  it("applies approved workflow patches through the workflow registry and audits success", async () => {
+    const workflowRegistry = createWorkflowRegistryService({
+      storePath: await createTempStorePath(),
+      now: () => "2026-05-29T01:00:00.000Z",
+    });
+    const auditLog = createAuditLogService({
+      now: () => "2026-05-29T02:00:00.000Z",
+      nextId: () => "audit-apply",
+    });
+    const service = createPatchProposalService({
+      nextId: () => "patch-persist",
+      workflowRegistry,
+      auditLog,
+    });
+    await workflowRegistry.create(baseWorkflow);
+    const proposal = await service.proposeWorkflowPatch({
+      targetWorkflow: baseWorkflow,
+      baseVersion: 2,
+      patch: [
+        { op: "replace", path: "/name", value: "Code Review v3" },
+        { op: "replace", path: "/version", value: 3 },
+      ],
+    });
+    await service.setApprovalState(proposal.id, "approved");
+
+    const applied = await service.apply(proposal.id);
+    const persisted = await workflowRegistry.get("code-review");
+
+    expect(applied.workflow.name).toBe("Code Review v3");
+    expect(applied.workflow.version).toBe(3);
+    expect(persisted?.name).toBe("Code Review v3");
+    expect(persisted?.version).toBe(3);
+    expect(await auditLog.list()).toEqual([
+      expect.objectContaining({
+        action: "patch.proposal",
+        patchProposalId: "patch-persist",
+        diffSummary: "replace /name; replace /version",
+        approvalDecision: "approved",
+      }),
+    ]);
+  });
+
+  it("rejects stale patch base versions and audits rejected apply attempts", async () => {
+    const workflowRegistry = createWorkflowRegistryService({
+      storePath: await createTempStorePath(),
+    });
+    const auditLog = createAuditLogService({ nextId: () => "audit-stale" });
+    const service = createPatchProposalService({
+      nextId: () => "patch-stale",
+      workflowRegistry,
+      auditLog,
+    });
+    await workflowRegistry.create({ ...baseWorkflow, version: 3 });
+    const proposal = await service.proposeWorkflowPatch({
+      targetWorkflow: baseWorkflow,
+      baseVersion: 2,
+      patch: [{ op: "replace", path: "/name", value: "Stale update" }],
+    });
+    await service.setApprovalState(proposal.id, "approved");
+
+    await expect(service.apply(proposal.id)).rejects.toThrow(
+      'Patch proposal "patch-stale" targets workflow version 2, but current version is 3.',
+    );
+    expect((await workflowRegistry.get("code-review"))?.name).toBe("Code Review");
+    expect(await auditLog.list()).toEqual([
+      expect.objectContaining({
+        action: "approval.decision",
+        patchProposalId: "patch-stale",
+        approvalDecision: "rejected",
+      }),
+    ]);
   });
 });
