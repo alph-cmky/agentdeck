@@ -424,10 +424,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Implement top bar, left sidebar, main work area, and right inspector.
-- [ ] Add navigation entries for Chat, Agents, Workflows, Tasks, Runtimes, Audit, and Settings.
-- [ ] Use dense tool-style layout with stable panel widths.
-- [ ] Commit with message `feat: add web app shell`.
+- [x] Implement top bar, left sidebar, main work area, and right inspector.
+- [x] Add navigation entries for Chat, Agents, Workflows, Tasks, Runtimes, Audit, and Settings.
+- [x] Use dense tool-style layout with stable panel widths.
+- [x] Commit with message `feat: add web app shell`.
 
 **Acceptance Criteria:**
 
