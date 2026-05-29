@@ -583,3 +583,90 @@ Status markers:
 **Acceptance Criteria:**
 
 - Pull requests have the same quality gates as local development.
+
+## Phase 11: MVP Integration
+
+### AD-1101: Implement Workflow Registry Persistence
+
+**Goal:** Persist workflow definitions behind a server-side registry service.
+
+**Files:**
+
+- Create `apps/server/src/workflows/workflow-repository.ts`
+- Create `apps/server/src/workflows/workflow-service.ts`
+- Create `apps/server/src/workflows/workflow-service.test.ts`
+- Modify `apps/server/src/index.ts`
+
+**Tasks:**
+
+- [x] Save, list, get, update, and delete workflow definitions.
+- [x] Validate workflow definitions through `workflow-core` before persistence.
+- [x] Preserve `createdAt` and update `updatedAt` on edits.
+- [x] Commit with message `feat: add workflow registry persistence`.
+
+**Acceptance Criteria:**
+
+- A valid workflow can be persisted, updated, loaded by ID, listed, and deleted without bypassing `workflow-core` validation.
+
+### AD-1102: Add Workflow HTTP Routes
+
+**Goal:** Expose workflow registry operations through the server control plane.
+
+**Files:**
+
+- Create `apps/server/src/workflows/workflow-routes.ts`
+- Create `apps/server/src/workflows/workflow-routes.test.ts`
+- Modify `apps/server/src/index.ts`
+
+**Tasks:**
+
+- [ ] Add routes to create, list, get, update, and delete workflows.
+- [ ] Return validation errors without persisting invalid workflows.
+- [ ] Keep route handlers thin and delegate to `workflow-service`.
+- [ ] Commit with message `feat: add workflow routes`.
+
+**Acceptance Criteria:**
+
+- The web app or MCP layer can manage workflows through server APIs instead of local mocks.
+
+### AD-1103: Add Patch Application Integration
+
+**Goal:** Connect approved patch proposals to workflow persistence.
+
+**Files:**
+
+- Modify `apps/server/src/patches/patch-service.ts`
+- Modify `apps/server/src/patches/patch-service.test.ts`
+- Modify `apps/server/src/workflows/workflow-service.ts`
+
+**Tasks:**
+
+- [ ] Apply approved workflow patch proposals through the workflow registry.
+- [ ] Reject stale base versions before apply.
+- [ ] Audit approved and rejected apply attempts.
+- [ ] Commit with message `feat: integrate patch apply workflow persistence`.
+
+**Acceptance Criteria:**
+
+- Approved workflow patches update the persisted workflow and stale patches are rejected.
+
+### AD-1104: Add Real Web Dev Runtime
+
+**Goal:** Replace the placeholder web package with a runnable local app.
+
+**Files:**
+
+- Modify `apps/web/package.json`
+- Create or modify Next.js app config files under `apps/web`
+- Modify existing `apps/web/src/app/page.tsx`
+
+**Tasks:**
+
+- [ ] Add a real `pnpm --filter @agentdeck/web dev` server.
+- [ ] Render the app shell, runtime dashboard, and workflow canvas in the browser.
+- [ ] Add browser smoke verification for the first viewport.
+- [ ] Commit with message `feat: add runnable web app`.
+
+**Acceptance Criteria:**
+
+- A contributor can run the web app locally and inspect the MVP UI in a browser.

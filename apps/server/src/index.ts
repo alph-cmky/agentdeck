@@ -95,3 +95,14 @@ export type {
   AuditMetadataValue,
   CreateAuditEntryInput,
 } from "./audit/audit-schema.js";
+export { createFileWorkflowRepository } from "./workflows/workflow-repository.js";
+export type { WorkflowRepository } from "./workflows/workflow-repository.js";
+export {
+  WorkflowValidationError,
+  createWorkflowRegistryService,
+} from "./workflows/workflow-service.js";
+export type {
+  CreateWorkflowRegistryServiceOptions,
+  WorkflowRegistryService,
+  WorkflowUpdateInput,
+} from "./workflows/workflow-service.js";
