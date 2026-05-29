@@ -445,10 +445,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Render runtime name, status, path, version, capabilities, and warnings.
-- [ ] Show install/configuration guidance for missing runtimes.
-- [ ] Avoid rendering secret-like values.
-- [ ] Commit with message `feat: add runtime dashboard ui`.
+- [x] Render runtime name, status, path, version, capabilities, and warnings.
+- [x] Show install/configuration guidance for missing runtimes.
+- [x] Avoid rendering secret-like values.
+- [x] Commit with message `feat: add runtime dashboard ui`.
 
 **Acceptance Criteria:**
 
