@@ -337,9 +337,9 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define adapter capabilities for `executeTask`, `cancelTask`, and `getCapabilities`.
-- [ ] Define streamed task events for stdout, stderr, tool events, diff, completion, and failure.
-- [ ] Commit with message `feat: define runtime adapter interface`.
+- [x] Define adapter capabilities for `executeTask`, `cancelTask`, and `getCapabilities`.
+- [x] Define streamed task events for stdout, stderr, tool events, diff, completion, and failure.
+- [x] Commit with message `feat: define runtime adapter interface`.
 
 **Acceptance Criteria:**
 
