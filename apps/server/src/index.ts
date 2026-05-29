@@ -106,3 +106,9 @@ export type {
   WorkflowRegistryService,
   WorkflowUpdateInput,
 } from "./workflows/workflow-service.js";
+export { createWorkflowRoutes } from "./workflows/workflow-routes.js";
+export type {
+  WorkflowMutationResponse,
+  WorkflowRouteResponse,
+  WorkflowRoutes,
+} from "./workflows/workflow-routes.js";
