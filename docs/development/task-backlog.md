@@ -489,10 +489,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define `PatchProposal` with target type, target ID, base version, JSON patch, validation result, approval state, and diff preview.
-- [ ] Validate workflow patches through `workflow-core`.
-- [ ] Require approval before apply.
-- [ ] Commit with message `feat: add patch proposal service`.
+- [x] Define `PatchProposal` with target type, target ID, base version, JSON patch, validation result, approval state, and diff preview.
+- [x] Validate workflow patches through `workflow-core`.
+- [x] Require approval before apply.
+- [x] Commit with message `feat: add patch proposal service`.
 
 **Acceptance Criteria:**
 

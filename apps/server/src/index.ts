@@ -54,3 +54,17 @@ export type {
   TaskStatus,
   TaskValidationResult,
 } from "./tasks/task-schema.js";
+export { createPatchProposalService } from "./patches/patch-service.js";
+export type {
+  CreatePatchProposalServiceOptions,
+  PatchProposalService,
+} from "./patches/patch-service.js";
+export type {
+  JsonPatchOperation,
+  PatchApprovalState,
+  PatchDiffPreview,
+  PatchProposal,
+  PatchTargetType,
+  ProposeWorkflowPatchInput,
+  WorkflowPatchProposal,
+} from "./patches/patch-schema.js";

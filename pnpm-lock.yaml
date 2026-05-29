@@ -45,7 +45,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/runtime-adapters
 
-  apps/server: {}
+  apps/server:
+    dependencies:
+      '@agentdeck/workflow-core':
+        specifier: workspace:*
+        version: link:../../packages/workflow-core
 
   apps/web:
     dependencies:
