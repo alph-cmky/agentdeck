@@ -85,7 +85,7 @@ describe("GET /events", () => {
         throw error;
       }
     }
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await waitForSubscriberCount(eventBus, 0);
 
     expect(eventBus.subscriberCount()).toBe(0);
   });
@@ -146,4 +146,17 @@ async function readUntil(
   }
 
   return text;
+}
+
+async function waitForSubscriberCount(
+  eventBus: ReturnType<typeof createEventBus>,
+  expectedCount: number,
+): Promise<void> {
+  for (let attempt = 0; attempt < 50; attempt += 1) {
+    if (eventBus.subscriberCount() === expectedCount) {
+      return;
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 10));
+  }
 }

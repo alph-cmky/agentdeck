@@ -10,5 +10,8 @@
     "lint": "echo \"@agentdeck/server lint is not scaffolded yet\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "format": "echo \"@agentdeck/server format is not scaffolded yet\""
+  },
+  "dependencies": {
+    "@agentdeck/workflow-core": "workspace:*"
   }
 }
