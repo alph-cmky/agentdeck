@@ -83,3 +83,15 @@ export type {
   PermissionName,
   PermissionPolicy,
 } from "./security/permission-policy.js";
+export { createAuditLogService } from "./audit/audit-service.js";
+export type { AuditLogService, CreateAuditLogServiceOptions } from "./audit/audit-service.js";
+export type {
+  AuditAction,
+  AuditActor,
+  AuditActorType,
+  AuditApprovalDecision,
+  AuditEntry,
+  AuditMetadata,
+  AuditMetadataValue,
+  CreateAuditEntryInput,
+} from "./audit/audit-schema.js";
