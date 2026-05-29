@@ -575,10 +575,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Document branch naming, commit style, and local verification commands.
-- [ ] Add PR checklist for tests, docs, and security-sensitive behavior.
-- [ ] Add CI steps for install, lint, typecheck, and test.
-- [ ] Commit with message `chore: add contributor workflow`.
+- [x] Document branch naming, commit style, and local verification commands.
+- [x] Add PR checklist for tests, docs, and security-sensitive behavior.
+- [x] Add CI steps for install, lint, typecheck, and test.
+- [x] Commit with message `chore: add contributor workflow`.
 
 **Acceptance Criteria:**
 
