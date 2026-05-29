@@ -468,10 +468,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Support Start, Agent, Tool, Condition, Human Approval, and End nodes.
-- [ ] Open selected node settings in the right inspector.
-- [ ] Run validation before saving.
-- [ ] Commit with message `feat: add workflow canvas mvp`.
+- [x] Support Start, Agent, Tool, Condition, Human Approval, and End nodes.
+- [x] Open selected node settings in the right inspector.
+- [x] Run validation before saving.
+- [x] Commit with message `feat: add workflow canvas mvp`.
 
 **Acceptance Criteria:**
 
