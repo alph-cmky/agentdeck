@@ -670,3 +670,66 @@ Status markers:
 **Acceptance Criteria:**
 
 - A contributor can run the web app locally and inspect the MVP UI in a browser.
+
+## Phase 12: MCP Tooling
+
+### AD-1201: Define MCP Tool Registry
+
+**Goal:** Provide controlled MCP-facing tool contracts for reading local AgentDeck definitions.
+
+**Files:**
+
+- Create `packages/mcp-server/src/tool-registry.ts`
+- Create `packages/mcp-server/src/tool-registry.test.ts`
+- Modify `packages/mcp-server/src/index.ts`
+
+**Tasks:**
+
+- [x] Define tool metadata with name, description, input schema, and handler.
+- [x] Add read-only tools for listing agents, listing workflows, and getting workflow details.
+- [x] Reject unknown tool names with a clear error.
+- [x] Commit with message `feat: add mcp tool registry`.
+
+**Acceptance Criteria:**
+
+- MCP clients can discover and call read-only AgentDeck tools without direct access to persistence internals.
+
+### AD-1202: Add MCP Patch Proposal Tools
+
+**Goal:** Expose controlled tools for proposing and previewing workflow patches.
+
+**Files:**
+
+- Modify `packages/mcp-server/src/tool-registry.ts`
+- Create or modify `packages/mcp-server/src/patch-tools.test.ts`
+
+**Tasks:**
+
+- [ ] Add a tool to propose workflow patches through `patch-service`.
+- [ ] Add a tool to preview patch diff summaries and validation results.
+- [ ] Ensure tools never apply patches directly.
+- [ ] Commit with message `feat: add mcp patch proposal tools`.
+
+**Acceptance Criteria:**
+
+- Agent clients can propose workflow changes but cannot bypass validation or approval.
+
+### AD-1203: Add MCP Approval Apply Tool
+
+**Goal:** Expose the approved patch application path through a controlled MCP tool.
+
+**Files:**
+
+- Modify `packages/mcp-server/src/tool-registry.ts`
+- Create or modify `packages/mcp-server/src/approval-tools.test.ts`
+
+**Tasks:**
+
+- [ ] Add a tool that applies only approved patch proposals.
+- [ ] Surface stale version and validation failures as tool errors.
+- [ ] Record audit entries for apply attempts.
+- [ ] Commit with message `feat: add mcp approved patch apply tool`.
+
+**Acceptance Criteria:**
+
+- Approved patches can be applied from MCP while unapproved or stale patches are rejected.

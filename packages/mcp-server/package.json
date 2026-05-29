@@ -16,5 +16,9 @@
     "lint": "echo \"@agentdeck/mcp-server lint is not scaffolded yet\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "format": "echo \"@agentdeck/mcp-server format is not scaffolded yet\""
+  },
+  "dependencies": {
+    "@agentdeck/server": "workspace:*",
+    "@agentdeck/workflow-core": "workspace:*"
   }
 }
