@@ -620,10 +620,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Add routes to create, list, get, update, and delete workflows.
-- [ ] Return validation errors without persisting invalid workflows.
-- [ ] Keep route handlers thin and delegate to `workflow-service`.
-- [ ] Commit with message `feat: add workflow routes`.
+- [x] Add routes to create, list, get, update, and delete workflows.
+- [x] Return validation errors without persisting invalid workflows.
+- [x] Keep route handlers thin and delegate to `workflow-service`.
+- [x] Commit with message `feat: add workflow routes`.
 
 **Acceptance Criteria:**
 
