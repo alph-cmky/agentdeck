@@ -1,5 +1,5 @@
-import { AppShell } from "../components/app-shell.js";
+import { renderHomePageHtml } from "./page-model.js";
 
-export default function Page(): string {
-  return AppShell();
+export default async function Page() {
+  return <div dangerouslySetInnerHTML={{ __html: await renderHomePageHtml() }} />;
 }
