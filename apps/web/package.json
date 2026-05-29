@@ -4,14 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo \"@agentdeck/web dev server is not scaffolded yet\"",
-    "build": "tsc -p tsconfig.json",
+    "dev": "next dev",
+    "build": "next build && tsc -p tsconfig.json",
     "test": "echo \"@agentdeck/web tests are not scaffolded yet\"",
     "lint": "echo \"@agentdeck/web lint is not scaffolded yet\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "format": "echo \"@agentdeck/web format is not scaffolded yet\""
   },
   "dependencies": {
-    "@agentdeck/workflow-core": "workspace:*"
+    "@agentdeck/workflow-core": "workspace:*",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3"
   }
 }

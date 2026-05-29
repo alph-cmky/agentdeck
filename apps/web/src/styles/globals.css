@@ -172,6 +172,74 @@ body {
   font-size: 13px;
 }
 
+.agentdeck-mvp-stack {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.runtime-dashboard {
+  border: 1px solid #d9e0e4;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.runtime-dashboard-header {
+  padding: 12px;
+  border-bottom: 1px solid #d9e0e4;
+}
+
+.runtime-dashboard-header h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.runtime-dashboard-header p {
+  margin: 0;
+  color: #66747d;
+  font-size: 12px;
+}
+
+.runtime-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.runtime-table th,
+.runtime-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid #edf1f3;
+  text-align: left;
+  vertical-align: top;
+}
+
+.runtime-table thead th {
+  color: #66747d;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.runtime-table tbody th {
+  width: 160px;
+}
+
+.runtime-status {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #e6f0ed;
+  color: #0e4f43;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.runtime-missing .runtime-status {
+  background: #f6e6e2;
+  color: #8a3326;
+}
+
 .workflow-canvas-shell {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr) 300px;

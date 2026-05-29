@@ -662,10 +662,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Add a real `pnpm --filter @agentdeck/web dev` server.
-- [ ] Render the app shell, runtime dashboard, and workflow canvas in the browser.
-- [ ] Add browser smoke verification for the first viewport.
-- [ ] Commit with message `feat: add runnable web app`.
+- [x] Add a real `pnpm --filter @agentdeck/web dev` server.
+- [x] Render the app shell, runtime dashboard, and workflow canvas in the browser.
+- [x] Add browser smoke verification for the first viewport.
+- [x] Commit with message `feat: add runnable web app`.
 
 **Acceptance Criteria:**
 
