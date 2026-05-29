@@ -531,10 +531,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Record who/what initiated each action.
-- [ ] Record task ID, runtime ID, command summary, diff summary, approval decision, and timestamps.
-- [ ] Redact secrets before persistence.
-- [ ] Commit with message `feat: add audit log service`.
+- [x] Record who/what initiated each action.
+- [x] Record task ID, runtime ID, command summary, diff summary, approval decision, and timestamps.
+- [x] Redact secrets before persistence.
+- [x] Commit with message `feat: add audit log service`.
 
 **Acceptance Criteria:**
 
