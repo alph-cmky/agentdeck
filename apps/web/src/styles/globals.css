@@ -1,0 +1,173 @@
+:root {
+  color: #172026;
+  background: #f4f6f7;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.agentdeck-shell {
+  min-height: 100vh;
+  background: #f4f6f7;
+}
+
+.agentdeck-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid #d9e0e4;
+  background: #ffffff;
+}
+
+.agentdeck-brand {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.agentdeck-topbar-meta {
+  color: #66747d;
+  font-size: 12px;
+}
+
+.agentdeck-layout {
+  display: grid;
+  min-height: calc(100vh - 48px);
+}
+
+.agentdeck-sidebar,
+.agentdeck-inspector {
+  background: #ffffff;
+}
+
+.agentdeck-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  border-right: 1px solid #d9e0e4;
+}
+
+.agentdeck-nav-item {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #28343b;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.agentdeck-nav-item.is-active {
+  background: #e6f0ed;
+  color: #0e4f43;
+  font-weight: 700;
+}
+
+.agentdeck-work-area {
+  min-width: 0;
+  padding: 16px;
+}
+
+.agentdeck-work-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d9e0e4;
+}
+
+.agentdeck-work-header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.agentdeck-work-header p {
+  max-width: 720px;
+  margin: 0;
+  color: #5c6870;
+  font-size: 13px;
+}
+
+.agentdeck-work-header button {
+  min-width: 88px;
+  height: 32px;
+  border: 1px solid #0e4f43;
+  border-radius: 6px;
+  background: #0e4f43;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.agentdeck-work-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.agentdeck-work-grid article {
+  min-height: 84px;
+  padding: 10px;
+  border: 1px solid #d9e0e4;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.agentdeck-work-grid h2 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.agentdeck-work-grid p {
+  margin: 8px 0 0;
+  color: #66747d;
+  font-size: 12px;
+}
+
+.agentdeck-inspector {
+  padding: 12px;
+  border-left: 1px solid #d9e0e4;
+}
+
+.agentdeck-panel-title {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.agentdeck-inspector-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.agentdeck-inspector-list div {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #edf1f3;
+}
+
+.agentdeck-inspector-list dt {
+  color: #66747d;
+  font-size: 11px;
+}
+
+.agentdeck-inspector-list dd {
+  margin: 3px 0 0;
+  font-size: 13px;
+}
