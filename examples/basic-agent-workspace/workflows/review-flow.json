@@ -1,0 +1,61 @@
+{
+  "id": "review-flow",
+  "name": "Review Flow",
+  "version": 1,
+  "status": "draft",
+  "variables": {
+    "reviewScope": "current diff",
+    "approvalRole": "maintainer"
+  },
+  "permissions": {
+    "read": true,
+    "write": false,
+    "install": false,
+    "arbitraryCommands": false,
+    "commit": false,
+    "push": false
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start",
+      "label": "Start"
+    },
+    {
+      "id": "agent-review",
+      "type": "agent",
+      "label": "Review current diff",
+      "agentId": "reviewer"
+    },
+    {
+      "id": "human-approval",
+      "type": "humanApproval",
+      "label": "Maintainer approval",
+      "approverRole": "maintainer"
+    },
+    {
+      "id": "end",
+      "type": "end",
+      "label": "End"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-start-review",
+      "from": "start",
+      "to": "agent-review"
+    },
+    {
+      "id": "edge-review-approval",
+      "from": "agent-review",
+      "to": "human-approval"
+    },
+    {
+      "id": "edge-approval-end",
+      "from": "human-approval",
+      "to": "end"
+    }
+  ],
+  "createdAt": "2026-05-29T00:00:00.000Z",
+  "updatedAt": "2026-05-29T00:00:00.000Z"
+}

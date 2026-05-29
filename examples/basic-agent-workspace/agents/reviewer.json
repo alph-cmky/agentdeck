@@ -1,0 +1,19 @@
+{
+  "id": "reviewer",
+  "name": "Code Reviewer",
+  "description": "Reviews local code changes for regressions, security risks, and missing tests.",
+  "prompt": "Review the current diff. Prioritize correctness, security-sensitive behavior, missing tests, and changes that could break existing workflows. Keep findings concise and reference files or workflow nodes when possible.",
+  "model": "gpt-5",
+  "tools": ["repo.read", "git.diff", "workflow.inspect"],
+  "permissions": {
+    "read": true,
+    "write": false,
+    "install": false,
+    "arbitraryCommands": false,
+    "commit": false,
+    "push": false
+  },
+  "memoryScope": "workspace",
+  "runtimePreference": "codex",
+  "workspaceRoot": "/absolute/path/to/your/project"
+}
