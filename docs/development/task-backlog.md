@@ -554,10 +554,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Add one code reviewer agent.
-- [ ] Add one review workflow with Start, Agent, Human Approval, and End.
-- [ ] Document how to run the demo locally.
-- [ ] Commit with message `docs: add basic agent workspace example`.
+- [x] Add one code reviewer agent.
+- [x] Add one review workflow with Start, Agent, Human Approval, and End.
+- [x] Document how to run the demo locally.
+- [x] Commit with message `docs: add basic agent workspace example`.
 
 **Acceptance Criteria:**
 
