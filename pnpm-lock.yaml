@@ -47,7 +47,11 @@ importers:
 
   apps/server: {}
 
-  apps/web: {}
+  apps/web:
+    dependencies:
+      '@agentdeck/workflow-core':
+        specifier: workspace:*
+        version: link:../../packages/workflow-core
 
   packages/mcp-server: {}
 

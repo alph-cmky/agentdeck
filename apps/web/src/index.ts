@@ -15,3 +15,12 @@ export type {
   RuntimeDashboardCapabilities,
   RuntimeDashboardResult,
 } from "./features/runtimes/runtime-status-row.js";
+export { renderNodeInspectorHtml } from "./features/workflows/node-inspector.js";
+export {
+  WORKFLOW_PALETTE_ITEMS,
+  labelForWorkflowNodeType,
+  renderNodePaletteHtml,
+} from "./features/workflows/node-palette.js";
+export type { WorkflowPaletteItem } from "./features/workflows/node-palette.js";
+export { renderWorkflowCanvasHtml } from "./features/workflows/workflow-canvas.js";
+export type { WorkflowCanvasState } from "./features/workflows/workflow-canvas.js";
