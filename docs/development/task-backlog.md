@@ -314,10 +314,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Add channel creation and listing.
-- [ ] Add message creation and listing.
-- [ ] Create task refs when messages contain valid `@agent` mentions.
-- [ ] Commit with message `feat: add chat workspace api`.
+- [x] Add channel creation and listing.
+- [x] Add message creation and listing.
+- [x] Create task refs when messages contain valid `@agent` mentions.
+- [x] Commit with message `feat: add chat workspace api`.
 
 **Acceptance Criteria:**
 

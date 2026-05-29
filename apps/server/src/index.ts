@@ -33,6 +33,16 @@ export {
   parseAgentMentions,
 } from "./chat/chat-schema.js";
 export type { AgentMention, Channel, Conversation, Message, Thread } from "./chat/chat-schema.js";
+export { createChatRoutes } from "./chat/chat-routes.js";
+export { createChatWorkspaceService } from "./chat/chat-service.js";
+export type { ChatRoutes } from "./chat/chat-routes.js";
+export type {
+  ChatWorkspaceService,
+  CreateChannelInput,
+  CreateMessageInput,
+  CreateMessageResult,
+  CreateChatWorkspaceServiceOptions,
+} from "./chat/chat-service.js";
 export {
   TASK_STATUSES,
   createTaskRefsForMessage,
