@@ -398,11 +398,11 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Detect cycles.
-- [ ] Validate node input/output compatibility.
-- [ ] Validate referenced agents and tools exist through injected resolvers.
-- [ ] Validate requested permissions do not exceed workflow permissions.
-- [ ] Commit with message `feat: add workflow validator`.
+- [x] Detect cycles.
+- [x] Validate node input/output compatibility.
+- [x] Validate referenced agents and tools exist through injected resolvers.
+- [x] Validate requested permissions do not exceed workflow permissions.
+- [x] Commit with message `feat: add workflow validator`.
 
 **Acceptance Criteria:**
 

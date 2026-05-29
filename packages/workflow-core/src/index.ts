@@ -23,3 +23,13 @@ export type {
   WorkflowStatus,
   WorkflowValidationResult,
 } from "./workflow-schema.js";
+
+export { validateWorkflowSafety } from "./validator.js";
+export type {
+  WorkflowIoContract,
+  WorkflowPermissionRequest,
+  WorkflowSafetyError,
+  WorkflowSafetyResult,
+  WorkflowSafetyValidatorOptions,
+  WorkflowValidationErrorCode,
+} from "./validator.js";
