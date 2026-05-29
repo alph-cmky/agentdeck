@@ -378,10 +378,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define node types: `start`, `agent`, `tool`, `condition`, `humanApproval`, and `end`.
-- [ ] Define edges, variables, permissions, status, version, and timestamps.
-- [ ] Validate exactly one start node and at least one end node.
-- [ ] Commit with message `feat: define workflow dag schema`.
+- [x] Define node types: `start`, `agent`, `tool`, `condition`, `humanApproval`, and `end`.
+- [x] Define edges, variables, permissions, status, version, and timestamps.
+- [x] Validate exactly one start node and at least one end node.
+- [x] Commit with message `feat: define workflow dag schema`.
 
 **Acceptance Criteria:**
 
