@@ -356,10 +356,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Allow only configured safe commands.
-- [ ] Stream stdout and stderr events.
-- [ ] Reject arbitrary commands unless permission policy allows them.
-- [ ] Commit with message `feat: add safe shell runtime adapter`.
+- [x] Allow only configured safe commands.
+- [x] Stream stdout and stderr events.
+- [x] Reject arbitrary commands unless permission policy allows them.
+- [x] Commit with message `feat: add safe shell runtime adapter`.
 
 **Acceptance Criteria:**
 

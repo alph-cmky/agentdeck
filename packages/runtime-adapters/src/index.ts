@@ -52,3 +52,6 @@ export type {
   TaskStdoutEvent,
   TaskToolEvent,
 } from "./execution/task-events.js";
+
+export { createSafeShellAdapter } from "./execution/shell-adapter.js";
+export type { SafeShellAdapterOptions, ShellCommandResult } from "./execution/shell-adapter.js";
