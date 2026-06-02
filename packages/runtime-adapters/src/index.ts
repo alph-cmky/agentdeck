@@ -9,3 +9,12 @@ export {
   type RuntimeStatus,
   type RuntimeType,
 } from "./runtime-types.js";
+
+export {
+  getProbeShellInvocation,
+  runProbe,
+  type ProbeShellInvocation,
+  type ProbeShellOptions,
+  type RunProbeOptions,
+  type RunProbeResult,
+} from "./probe/run-probe.js";
