@@ -1,0 +1,14 @@
+{
+  "name": "@agentdeck/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"@agentdeck/server dev server is not scaffolded yet\"",
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"@agentdeck/server tests are not scaffolded yet\"",
+    "lint": "echo \"@agentdeck/server lint is not scaffolded yet\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "echo \"@agentdeck/server format is not scaffolded yet\""
+  }
+}
