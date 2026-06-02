@@ -225,10 +225,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Define event types for `runtime.detected`, `task.started`, `task.output`, `task.diff`, `task.approvalRequested`, `task.completed`, and `task.failed`.
-- [ ] Add SSE endpoint `GET /events`.
-- [ ] Broadcast runtime detection lifecycle events.
-- [ ] Commit with message `feat: add daemon event stream`.
+- [x] Define event types for `runtime.detected`, `task.started`, `task.output`, `task.diff`, `task.approvalRequested`, `task.completed`, and `task.failed`.
+- [x] Add SSE endpoint `GET /events`.
+- [x] Broadcast runtime detection lifecycle events.
+- [x] Commit with message `feat: add daemon event stream`.
 
 **Acceptance Criteria:**
 
