@@ -80,11 +80,11 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Summarize product positioning in `README.md`.
-- [ ] Link `AGENTDECK_PRODUCT_DESIGN.md` from `README.md`.
-- [ ] Document the monorepo package responsibilities in `docs/architecture.md`.
-- [ ] Capture initial security rules in `docs/security-model.md`.
-- [ ] Commit with message `docs: add project documentation skeleton`.
+- [x] Summarize product positioning in `README.md`.
+- [x] Link `AGENTDECK_PRODUCT_DESIGN.md` from `README.md`.
+- [x] Document the monorepo package responsibilities in `docs/architecture.md`.
+- [x] Capture initial security rules in `docs/security-model.md`.
+- [x] Commit with message `docs: add project documentation skeleton`.
 
 **Acceptance Criteria:**
 
