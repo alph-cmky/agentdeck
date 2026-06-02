@@ -176,10 +176,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Use read-only version/path probes for each CLI-based runtime.
-- [ ] Use local HTTP health checks only for Ollama and LM Studio when configured.
-- [ ] Normalize missing runtime warnings for UI display.
-- [ ] Commit with message `feat: add core runtime detectors`.
+- [x] Use read-only version/path probes for each CLI-based runtime.
+- [x] Use local HTTP health checks only for Ollama and LM Studio when configured.
+- [x] Normalize missing runtime warnings for UI display.
+- [x] Commit with message `feat: add core runtime detectors`.
 
 **Acceptance Criteria:**
 
