@@ -25,3 +25,22 @@ export type {
   AgentUpdateInput,
   CreateAgentRegistryServiceOptions,
 } from "./agents/agent-service.js";
+export {
+  createChannel,
+  createConversation,
+  createMessage,
+  createThread,
+  parseAgentMentions,
+} from "./chat/chat-schema.js";
+export type { AgentMention, Channel, Conversation, Message, Thread } from "./chat/chat-schema.js";
+export {
+  TASK_STATUSES,
+  createTaskRefsForMessage,
+  validateMentionedAgentsExist,
+} from "./tasks/task-schema.js";
+export type {
+  TaskRef,
+  TaskSchemaResult,
+  TaskStatus,
+  TaskValidationResult,
+} from "./tasks/task-schema.js";
