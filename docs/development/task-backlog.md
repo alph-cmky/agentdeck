@@ -270,10 +270,10 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Implement create, list, get, update, and delete operations.
-- [ ] Enforce schema validation before persistence.
-- [ ] Preserve created/updated timestamps.
-- [ ] Commit with message `feat: add agent registry service`.
+- [x] Implement create, list, get, update, and delete operations.
+- [x] Enforce schema validation before persistence.
+- [x] Preserve created/updated timestamps.
+- [x] Commit with message `feat: add agent registry service`.
 
 **Acceptance Criteria:**
 

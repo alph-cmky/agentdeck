@@ -28,6 +28,11 @@ export interface AgentDefinition {
   readonly workspaceRoot: string;
 }
 
+export interface PersistedAgentDefinition extends AgentDefinition {
+  readonly createdAt: string;
+  readonly updatedAt: string;
+}
+
 export type AgentDefinitionInput = Omit<AgentDefinition, "permissions"> & {
   readonly permissions?: Partial<AgentPermissions>;
 };
