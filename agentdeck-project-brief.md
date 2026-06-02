@@ -59,15 +59,15 @@ Slock-like 多 Agent 协作空间
 
 截至 2026-05-27，社区里有很多可借鉴组件，但没有一个完整覆盖本项目设想的成熟开源方案。
 
-| 方向 | 代表方案 | 可借鉴点 | 不足 |
-| --- | --- | --- | --- |
-| 多 Agent 协作空间 | Slock | Channel / DM / thread、多 Agent、local daemon、持久记忆 | 低代码编排弱，完整开源生态不明确 |
-| 低代码 Agent 平台 | Coze Studio | Agent、Workflow、Plugin、RAG、可视化低代码 | 架构较重，偏平台，不是本地 coding-agent workspace |
-| LLM App 平台 | Dify | 应用、Agent、Workflow、RAG、插件、API 发布 | 更偏 AI 应用发布，不偏本地代码协作 |
-| 可视化 Agent 工作流 | Flowise / Langflow | Chatflow、Agentflow、可视化搭建、API/SDK/CLI | 本地 coding agent 与安全改图能力不足 |
-| 多 Agent 框架 | CrewAI / AutoGen Studio / LangGraph | 多 Agent 协作、任务分发、状态图、调试 | 更偏框架或实验台，不是完整产品 |
-| coding agent runtime | OpenHands / Aider / Claude Code / Codex CLI | 代码修改、命令执行、仓库任务、沙箱能力 | 缺少 Coze-like 低代码工作流产品体验 |
-| 协议层 | MCP | 标准化 tools/resources/prompts，可做 Agent 修改系统的安全工具层 | 本身不是应用框架 |
+| 方向                 | 代表方案                                    | 可借鉴点                                                        | 不足                                              |
+| -------------------- | ------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------- |
+| 多 Agent 协作空间    | Slock                                       | Channel / DM / thread、多 Agent、local daemon、持久记忆         | 低代码编排弱，完整开源生态不明确                  |
+| 低代码 Agent 平台    | Coze Studio                                 | Agent、Workflow、Plugin、RAG、可视化低代码                      | 架构较重，偏平台，不是本地 coding-agent workspace |
+| LLM App 平台         | Dify                                        | 应用、Agent、Workflow、RAG、插件、API 发布                      | 更偏 AI 应用发布，不偏本地代码协作                |
+| 可视化 Agent 工作流  | Flowise / Langflow                          | Chatflow、Agentflow、可视化搭建、API/SDK/CLI                    | 本地 coding agent 与安全改图能力不足              |
+| 多 Agent 框架        | CrewAI / AutoGen Studio / LangGraph         | 多 Agent 协作、任务分发、状态图、调试                           | 更偏框架或实验台，不是完整产品                    |
+| coding agent runtime | OpenHands / Aider / Claude Code / Codex CLI | 代码修改、命令执行、仓库任务、沙箱能力                          | 缺少 Coze-like 低代码工作流产品体验               |
+| 协议层               | MCP                                         | 标准化 tools/resources/prompts，可做 Agent 修改系统的安全工具层 | 本身不是应用框架                                  |
 
 结论：最优策略不是直接 fork Coze/Dify，而是借鉴它们的模型，自研本地 daemon、Chat 协作层和 workflow patch 安全层。
 
@@ -529,4 +529,3 @@ Phase 5: Memory、Audit、Plugin/MCP 市场
 - OpenAI Codex CLI: https://developers.openai.com/codex/cli
 - Ollama Codex integration: https://docs.ollama.com/integrations/codex
 - Model Context Protocol: https://modelcontextprotocol.wiki/en/introduction
-

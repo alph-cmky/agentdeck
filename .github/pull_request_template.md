@@ -1,10 +1,10 @@
 ## Summary
 
-- 
+-
 
 ## Related Task or Issue
 
-- 
+-
 
 ## Verification
 
@@ -21,7 +21,7 @@ Commands run:
 
 Notes:
 
-- 
+-
 
 ## UI Impact
 

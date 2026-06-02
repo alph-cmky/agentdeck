@@ -53,12 +53,12 @@ Status markers:
 
 **Tasks:**
 
-- [ ] Configure Prettier for Markdown, TypeScript, JSON, and CSS.
-- [ ] Configure ESLint for TypeScript and React.
-- [ ] Configure Vitest for package-level unit tests.
-- [ ] Add root scripts for `lint`, `format`, `test`, and `typecheck`.
-- [ ] Verify all scripts run successfully on the scaffold.
-- [ ] Commit with message `chore: add code quality tooling`.
+- [x] Configure Prettier for Markdown, TypeScript, JSON, and CSS.
+- [x] Configure ESLint for TypeScript and React.
+- [x] Configure Vitest for package-level unit tests.
+- [x] Add root scripts for `lint`, `format`, `test`, and `typecheck`.
+- [x] Verify all scripts run successfully on the scaffold.
+- [x] Commit with message `chore: add code quality tooling`.
 
 **Acceptance Criteria:**
 

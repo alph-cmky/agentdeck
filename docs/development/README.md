@@ -27,19 +27,19 @@
 
 ## Phase Map
 
-| Phase | Name | Outcome |
-| --- | --- | --- |
-| 0 | Repository Foundation | Monorepo scaffold, tooling, docs, CI-quality local commands |
-| 1 | Runtime Detector | Detect Codex, Claude, Node, Git, Ollama, LM Studio with safe metadata collection |
-| 2 | Local Daemon | Run local detection and stream events to the app/server |
-| 3 | Agent Registry | Create, edit, validate, and persist agent definitions with permissions |
-| 4 | Chat Workspace | Channels, messages, `@agent` mentions, task creation, task status stream |
-| 5 | Runtime Adapters | Codex/Claude/shell adapter contracts and first executable task path |
-| 6 | Workflow Core | DAG schema, node types, validation, versioning, execution trace model |
-| 7 | Workflow Canvas | Visual DAG editor with node inspector and validation feedback |
-| 8 | Patch Approval | Chat-generated workflow/agent patch proposals, diff preview, approval, rollback |
-| 9 | Security & Audit | Permission enforcement, redaction, audit log, safe command policy |
-| 10 | Packaging & Examples | Local dev setup, sample agents/workflows, contributor docs |
+| Phase | Name                  | Outcome                                                                          |
+| ----- | --------------------- | -------------------------------------------------------------------------------- |
+| 0     | Repository Foundation | Monorepo scaffold, tooling, docs, CI-quality local commands                      |
+| 1     | Runtime Detector      | Detect Codex, Claude, Node, Git, Ollama, LM Studio with safe metadata collection |
+| 2     | Local Daemon          | Run local detection and stream events to the app/server                          |
+| 3     | Agent Registry        | Create, edit, validate, and persist agent definitions with permissions           |
+| 4     | Chat Workspace        | Channels, messages, `@agent` mentions, task creation, task status stream         |
+| 5     | Runtime Adapters      | Codex/Claude/shell adapter contracts and first executable task path              |
+| 6     | Workflow Core         | DAG schema, node types, validation, versioning, execution trace model            |
+| 7     | Workflow Canvas       | Visual DAG editor with node inspector and validation feedback                    |
+| 8     | Patch Approval        | Chat-generated workflow/agent patch proposals, diff preview, approval, rollback  |
+| 9     | Security & Audit      | Permission enforcement, redaction, audit log, safe command policy                |
+| 10    | Packaging & Examples  | Local dev setup, sample agents/workflows, contributor docs                       |
 
 ## Recommended Build Order
 
